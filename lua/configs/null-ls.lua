@@ -13,7 +13,8 @@ local opts = {
         "md"
       },
     }),
-    null_ls.builtins.formatting.mix
+    null_ls.builtins.formatting.mix,
+    null_ls.builtins.formatting.stylua,
   },
   on_attach = function(client, bufnr)
     if client.supports_method("textDocument/formatting") then

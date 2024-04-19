@@ -19,9 +19,9 @@ local yamlCompanionCfg = require("yaml-companion").setup {
   on_attach = on_attach,
   on_init = on_init,
   capabilities = capabilities,
-    -- detect k8s schemas based on file content
+  -- detect k8s schemas based on file content
   builtin_matchers = {
-    kubernetes = { enabled = true }
+    kubernetes = { enabled = true },
   },
 
   -- schemas available in Telescope picker
@@ -30,21 +30,21 @@ local yamlCompanionCfg = require("yaml-companion").setup {
     -- :Telescope yaml_schema
     {
       name = "Argo CD Application",
-      uri = "https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/argoproj.io/application_v1alpha1.json"
+      uri = "https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/argoproj.io/application_v1alpha1.json",
     },
     {
       name = "SealedSecret",
-      uri = "https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/bitnami.com/sealedsecret_v1alpha1.json"
+      uri = "https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/bitnami.com/sealedsecret_v1alpha1.json",
     },
     -- schemas below are automatically loaded, but added
     -- them here so that they show up in the statusline
     {
       name = "Kustomization",
-      uri = "https://json.schemastore.org/kustomization.json"
+      uri = "https://json.schemastore.org/kustomization.json",
     },
     {
       name = "GitHub Workflow",
-      uri = "https://json.schemastore.org/github-workflow.json"
+      uri = "https://json.schemastore.org/github-workflow.json",
     },
   },
 
@@ -54,28 +54,28 @@ local yamlCompanionCfg = require("yaml-companion").setup {
         validate = true,
         schemaStore = {
           enable = false,
-          url = ""
+          url = "",
         },
 
         -- schemas from store, matched by filename
         -- loaded automatically
-        schemas = require('schemastore').yaml.schemas {
+        schemas = require("schemastore").yaml.schemas {
           select = {
-            'kustomization.yaml',
-            'GitHub Workflow',
-          }
-        }
-      }
-    }
-  }
+            "kustomization.yaml",
+            "GitHub Workflow",
+          },
+        },
+      },
+    },
+  },
 }
 
 lspconfig.rust_analyzer.setup {
   on_attach = on_attach,
   on_init = on_init,
   capabilities = capabilities,
-  filetypes = {"rust"},
-  root_dir = lspconfig.util.root_pattern("Cargo.toml")
+  filetypes = { "rust" },
+  root_dir = lspconfig.util.root_pattern "Cargo.toml",
 }
 
 lspconfig.tsserver.setup {
@@ -84,9 +84,9 @@ lspconfig.tsserver.setup {
   capabilities = capabilities,
   init_options = {
     preferences = {
-      disableSuggestions = true
-    }
-  }
+      disableSuggestions = true,
+    },
+  },
 }
 
 lspconfig.eslint.setup {
@@ -99,6 +99,14 @@ lspconfig.lua_ls.setup {
   on_attach = on_attach,
   on_init = on_init,
   capabilities = capabilities,
+  settings = {
+    Lua = {
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = { "vim" },
+      },
+    },
+  },
 }
 
 lspconfig.yamlls.setup(yamlCompanionCfg)
@@ -113,16 +121,16 @@ lspconfig.emmet_ls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
   filetypes = {
-    'html',
-    'css',
-    'scss',
-    'javascriptreact',
-    'typescriptreact',
-    'xml',
-    'sass',
-    'eex',
-    'heex',
-  };
+    "html",
+    "css",
+    "scss",
+    "javascriptreact",
+    "typescriptreact",
+    "xml",
+    "sass",
+    "eex",
+    "heex",
+  },
 }
 
 lspconfig.angularls.setup {
