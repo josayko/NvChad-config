@@ -38,6 +38,7 @@ return {
         "elixir-ls",
         "angular-language-server",
         "fsautocomplete",
+        "fantomas",
       },
     },
   },

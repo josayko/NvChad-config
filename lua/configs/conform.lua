@@ -8,8 +8,8 @@ local options = {
     html = { "prettierd" },
     markdown = { "prettierd" },
     elixir = { "mix" },
-    -- css = { "prettier" },
-    -- html = { "prettier" },
+    css = { "prettier" },
+    fsharp = { "fantomas" },
   },
 }
 
