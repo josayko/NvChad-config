@@ -11,18 +11,18 @@ return {
     event = "VeryLazy",
     opts = function()
       return require "configs.null-ls"
-    end
+    end,
   },
   {
     "christoomey/vim-tmux-navigator",
-    lazy = false
+    lazy = false,
   },
   {
     "neovim/nvim-lspconfig",
-    config = function ()
+    config = function()
       require "nvchad.configs.lspconfig"
       require "configs.lspconfig"
-    end
+    end,
   },
   {
     "williamboman/mason.nvim",
@@ -36,9 +36,10 @@ return {
         "yaml-language-server",
         "emmet-ls",
         "elixir-ls",
-        "angular-language-server"
-      }
-    }
+        "angular-language-server",
+        "fsautocomplete",
+      },
+    },
   },
   {
     "nvim-treesitter/nvim-treesitter",
@@ -59,10 +60,10 @@ return {
         "eex",
         "heex",
         "gleam",
-        "angular"
+        "angular",
       }
       return opts
-    end
+    end,
   },
   {
     "windwp/nvim-ts-autotag",
@@ -73,38 +74,36 @@ return {
       "typescript",
       "typescriptreact",
     },
-    config = function ()
+    config = function()
       require("nvim-ts-autotag").setup()
-    end
+    end,
   },
   {
     "hrsh7th/nvim-cmp",
     opts = function()
       return require "configs.cmp"
-    end
+    end,
   },
   {
     "vim-crystal/vim-crystal",
     ft = "crystal",
-    config = function ()
+    config = function()
       vim.g.crystal_auto_format = 1
-    end
+    end,
   },
   {
     "gleam-lang/gleam.vim",
     ft = "gleam",
-    config = function ()
-      vim.g.crystal_auto_format = 1
-    end
   },
+  { "ionide/Ionide-vim", ft = "fsharp" },
   {
     "echasnovski/mini.animate",
     version = false,
     lazy = false,
     open = { enable = false },
-    config = function ()
+    config = function()
       require("mini.animate").setup()
-    end
+    end,
   },
   {
     "nvim-pack/nvim-spectre",
@@ -113,7 +112,13 @@ return {
     opts = { open_cmd = "noswapfile vnew" },
     is_block_ui_break = true,
     keys = {
-      { "<leader>sr", function() require("spectre").open() end, desc = "Replace in files (Spectre)" },
+      {
+        "<leader>sr",
+        function()
+          require("spectre").open()
+        end,
+        desc = "Replace in files (Spectre)",
+      },
     },
   },
   {
@@ -121,18 +126,18 @@ return {
     ft = {
       "yaml",
       "yml",
-      "json"
-    }
+      "json",
+    },
   },
   {
     "someone-stole-my-name/yaml-companion.nvim",
     requires = {
-        { "neovim/nvim-lspconfig" },
-        { "nvim-lua/plenary.nvim" },
-        { "nvim-telescope/telescope.nvim" },
+      { "neovim/nvim-lspconfig" },
+      { "nvim-lua/plenary.nvim" },
+      { "nvim-telescope/telescope.nvim" },
     },
     config = function()
-      require("telescope").load_extension("yaml_schema")
+      require("telescope").load_extension "yaml_schema"
     end,
   },
   {
@@ -140,11 +145,11 @@ return {
     version = "*",
     event = { "BufReadPre", "BufNewFile" },
     config = function()
-      local elixir = require("elixir")
-      local elixirls = require("elixir.elixirls")
+      local elixir = require "elixir"
+      local elixirls = require "elixir.elixirls"
 
       elixir.setup {
-        nextls = {enable = true},
+        nextls = { enable = true },
         credo = {},
         elixirls = {
           enable = true,
@@ -157,12 +162,11 @@ return {
             vim.keymap.set("n", "<space>tp", ":ElixirToPipe<cr>", { buffer = true, noremap = true })
             vim.keymap.set("v", "<space>em", ":ElixirExpandMacro<cr>", { buffer = true, noremap = true })
           end,
-        }
+        },
       }
     end,
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
-  }
+  },
 }
-
