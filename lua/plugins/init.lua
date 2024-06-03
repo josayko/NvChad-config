@@ -197,6 +197,7 @@ return {
       -- VimTeX configuration goes here, e.g.
       vim.g.vimtex_view_method = "zathura"
       vim.g.vimtex_syntax_enabled = 0
+      vim.g.vimtex_indent_enabled = 1
       -- vim.g.vimtex_compile_latexmk_engines = {
       --   ["_"] = "-pdfdvi",
       -- }
