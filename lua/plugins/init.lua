@@ -1,9 +1,8 @@
 return {
   {
     "stevearc/conform.nvim",
-    config = function()
-      require "configs.conform"
-    end,
+    event = 'BufWritePre', -- uncomment for format on save
+    opts = require "configs.conform"
   },
   {
     "christoomey/vim-tmux-navigator",
