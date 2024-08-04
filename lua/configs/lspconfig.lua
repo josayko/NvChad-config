@@ -156,6 +156,7 @@ lspconfig.emmet_ls.setup {
     "scss",
     "javascriptreact",
     "typescriptreact",
+    "typescript",
     "xml",
     "sass",
     "eex",
