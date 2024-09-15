@@ -12,6 +12,7 @@ local servers = {
   "volar",
   "gopls",
   "texlab",
+  "denols",
 }
 
 -- -- lsps with default config
@@ -79,6 +80,8 @@ lspconfig.ts_ls.setup {
     "typescriptreact",
     "vue",
   },
+  root_dir = util.root_pattern "package.json",
+  single_file_support = false,
 }
 
 -- You must make sure volar is setup
@@ -119,5 +122,12 @@ lspconfig.emmet_ls.setup {
     "typescriptreact",
     "vue",
     "htmlangular",
+  },
+}
+
+lspconfig.denols.setup {
+  root_dir = util.root_pattern("deno.json", "deno.jsonc"),
+  init_options = {
+    lint = true,
   },
 }

@@ -74,6 +74,7 @@ return {
   {
     "mfussenegger/nvim-lint",
     event = {
+      "VeryLazy",
       "BufReadPre",
       "BufNewFile",
     },
@@ -88,6 +89,18 @@ return {
         go = { "golangcilint" },
         python = { "pylint" },
       }
+      -- lint.linters = {
+      --   eslint_d = {
+      --     -- dynamically enable/disable linters based on the context.
+      --     cmd = "eslint_d",
+      --     condition = function(ctx)
+      --       return vim.fs.find(
+      --         { "eslint.config.js", "eslint.config.mjs", "eslint.config.cjs" },
+      --         { path = ctx.filename, upward = true }
+      --       )[1]
+      --     end,
+      --   },
+      -- }
       local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
       vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
         group = lint_augroup,
