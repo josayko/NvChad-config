@@ -11,6 +11,7 @@ local servers = {
   "emmet_ls",
   "volar",
   "gopls",
+  "texlab",
 }
 
 -- -- lsps with default config
