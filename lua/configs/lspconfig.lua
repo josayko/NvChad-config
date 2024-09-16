@@ -13,6 +13,14 @@ local servers = {
   "gopls",
   "texlab",
   "denols",
+  "angularls",
+  "fsautocomplete",
+  "templ",
+  "tailwindcss",
+  "rust_analyzer",
+  "pyright",
+  "gleam",
+  "yamlls"
 }
 
 -- -- lsps with default config
@@ -44,6 +52,10 @@ lspconfig.lua_ls.setup {
         -- (most likely LuaJIT in the case of Neovim)
         version = "LuaJIT",
       },
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = { "vim" },
+      },
       -- Make the server aware of Neovim runtime files
       workspace = {
         checkThirdParty = false,
@@ -66,6 +78,9 @@ lspconfig.lua_ls.setup {
 lspconfig.ts_ls.setup {
   init_options = {
     plugins = {
+      preferences = {
+        disableSuggestions = true,
+      },
       {
         name = "@vue/typescript-plugin",
         location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
@@ -122,6 +137,10 @@ lspconfig.emmet_ls.setup {
     "typescriptreact",
     "vue",
     "htmlangular",
+    "heex",
+    "tmpl",
+    "templ",
+    "template"
   },
 }
 
@@ -130,4 +149,12 @@ lspconfig.denols.setup {
   init_options = {
     lint = true,
   },
+}
+
+lspconfig.rust_analyzer.setup {
+  on_attach = on_attach,
+  on_init = on_init,
+  capabilities = capabilities,
+  filetypes = { "rust" },
+  root_dir = lspconfig.util.root_pattern "Cargo.toml",
 }
