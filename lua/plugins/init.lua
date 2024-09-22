@@ -20,7 +20,7 @@ return {
     opts = {
       ensure_installed = {
         "lua-language-server",
-        "eslint_d",
+        "eslint",
         "prettierd",
         "tailwindcss-language-server",
         "typescript-language-server",
@@ -81,18 +81,18 @@ return {
     config = function()
       local lint = require "lint"
       lint.linters_by_ft = {
-        javascript = { "eslint_d" },
-        typescript = { "eslint_d" },
-        javascriptreact = { "eslint_d" },
-        typescriptreact = { "eslint_d" },
-        vue = { "eslint_d" },
+        javascript = { "eslint" },
+        typescript = { "eslint" },
+        javascriptreact = { "eslint" },
+        typescriptreact = { "eslint" },
+        vue = { "eslint" },
         go = { "golangcilint" },
         python = { "pylint" },
       }
       -- lint.linters = {
       --   eslint_d = {
       --     -- dynamically enable/disable linters based on the context.
-      --     cmd = "eslint_d",
+      --     cmd = "eslint",
       --     condition = function(ctx)
       --       return vim.fs.find(
       --         { "eslint.config.js", "eslint.config.mjs", "eslint.config.cjs" },

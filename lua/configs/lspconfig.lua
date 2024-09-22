@@ -9,6 +9,7 @@ local servers = {
   "lua_ls",
   "ts_ls",
   "emmet_ls",
+  "eslint",
   "volar",
   "gopls",
   "texlab",
@@ -20,7 +21,7 @@ local servers = {
   "rust_analyzer",
   "pyright",
   "gleam",
-  "yamlls"
+  "yamlls",
 }
 
 -- -- lsps with default config
@@ -140,7 +141,7 @@ lspconfig.emmet_ls.setup {
     "heex",
     "tmpl",
     "templ",
-    "template"
+    "template",
   },
 }
 
