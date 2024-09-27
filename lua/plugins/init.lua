@@ -101,6 +101,10 @@ return {
       --     end,
       --   },
       -- }
+      -- Set pylint to work in virtualenv
+      lint.linters.pylint.cmd = "python"
+      lint.linters.pylint.stdin = false
+      lint.linters.pylint.args = { "-m", "pylint", "-f", "json" }
       local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
       vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
         group = lint_augroup,
@@ -337,5 +341,26 @@ return {
       -- "ibhagwan/fzf-lua", -- optional
     },
     config = true,
+  },
+  {
+    "linux-cultist/venv-selector.nvim",
+    branch = "regexp", -- Use this branch for the new version
+    cmd = "VenvSelect",
+    dependencies = {
+      "neovim/nvim-lspconfig",
+      -- "mfussenegger/nvim-dap",
+      -- "mfussenegger/nvim-dap-python", --optional
+      { "nvim-telescope/telescope.nvim", branch = "0.1.x", dependencies = { "nvim-lua/plenary.nvim" } },
+    },
+    opts = {
+      settings = {
+        options = {
+          notify_user_on_venv_activation = true,
+        },
+      },
+    },
+    --  Call config for python files and load the cached venv automatically
+    ft = "python",
+    keys = { { "<leader>cv", "<cmd>:VenvSelect<cr>", desc = "Select VirtualEnv", ft = "python" } },
   },
 }
