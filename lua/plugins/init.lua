@@ -135,12 +135,6 @@ return {
     end,
   },
   {
-    "hrsh7th/nvim-cmp",
-    opts = function()
-      return require "configs.cmp"
-    end,
-  },
-  {
     "vim-crystal/vim-crystal",
     ft = "crystal",
     config = function()
