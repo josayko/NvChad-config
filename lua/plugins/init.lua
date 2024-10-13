@@ -81,30 +81,22 @@ return {
     config = function()
       local lint = require "lint"
       lint.linters_by_ft = {
-        javascript = { "eslint" },
-        typescript = { "eslint" },
-        javascriptreact = { "eslint" },
-        typescriptreact = { "eslint" },
-        vue = { "eslint" },
+        -- Disable eslint if use deno lsp
+        -- typescript = { "eslint" },
+        -- javascriptreact = { "eslint" },
+        -- typescriptreact = { "eslint" },
+        -- vue = { "eslint" },
         go = { "golangcilint" },
         python = { "pylint" },
       }
-      -- lint.linters = {
-      --   eslint_d = {
-      --     -- dynamically enable/disable linters based on the context.
-      --     cmd = "eslint",
-      --     condition = function(ctx)
-      --       return vim.fs.find(
-      --         { "eslint.config.js", "eslint.config.mjs", "eslint.config.cjs" },
-      --         { path = ctx.filename, upward = true }
-      --       )[1]
-      --     end,
-      --   },
-      -- }
-      -- Set pylint to work in virtualenv
-      lint.linters.pylint.cmd = "python"
-      lint.linters.pylint.stdin = false
-      lint.linters.pylint.args = { "-m", "pylint", "-f", "json" }
+      lint.linters = {
+        pylint = {
+          -- Set pylint to work in virtualenv
+          cmd = "python",
+          stdin = false,
+          args = { "-m", "pylint", "-f", "json" },
+        },
+      }
       local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
       vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
         group = lint_augroup,

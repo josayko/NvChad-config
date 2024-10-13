@@ -1,10 +1,10 @@
 local options = {
   formatters_by_ft = {
     lua = { "stylua" },
-    javascript = { "prettierd" },
-    typescript = { "prettierd" },
-    javascriptreact = { "prettierd" },
-    typescriptreact = { "prettierd" },
+    javascript = { "deno_fmt" },
+    typescript = { "deno_fmt" },
+    javascriptreact = { "deno_fmt" },
+    typescriptreact = { "deno_fmt" },
     python = { "isort", "black" },
     html = { "prettierd" },
     markdown = { "prettierd" },
@@ -13,7 +13,7 @@ local options = {
     fsharp = { "fantomas" },
     yaml = { "yamlfmt" },
     go = { "goimports-reviser", "gofmt" },
-    vue = { "prettierd" },
+    vue = { "deno_fmt" },
   },
   format_on_save = {
     -- These options will be passed to conform.format()

@@ -76,29 +76,33 @@ lspconfig.lua_ls.setup {
   },
 }
 
--- lspconfig.ts_ls.setup {
---   init_options = {
---     plugins = {
---       preferences = {
---         disableSuggestions = true,
---       },
---       {
---         name = "@vue/typescript-plugin",
---         location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
---         languages = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue" },
---       },
---     },
---   },
---   filetypes = {
---     "javascript",
---     "javascriptreact",
---     "typescript",
---     "typescriptreact",
---     "vue",
---   },
---   root_dir = util.root_pattern "package.json",
---   single_file_support = false,
--- }
+lspconfig.eslint.setup {
+  root_dir = util.root_pattern "eslint.config.js",
+}
+
+lspconfig.ts_ls.setup {
+  init_options = {
+    plugins = {
+      preferences = {
+        disableSuggestions = true,
+      },
+      {
+        name = "@vue/typescript-plugin",
+        location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
+        languages = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue" },
+      },
+    },
+  },
+  filetypes = {
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "vue",
+  },
+  root_dir = util.root_pattern "package.json",
+  single_file_support = false,
+}
 
 -- You must make sure volar is setup
 -- e.g. require'lspconfig'.volar.setup{}
