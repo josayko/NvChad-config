@@ -89,14 +89,14 @@ return {
         go = { "golangcilint" },
         python = { "pylint" },
       }
-      lint.linters = {
-        pylint = {
-          -- Set pylint to work in virtualenv
-          cmd = "python",
-          stdin = false,
-          args = { "-m", "pylint", "-f", "json" },
-        },
-      }
+      -- lint.linters = {
+      --   pylint = {
+      --     -- Set pylint to work in virtualenv
+      --     cmd = "python",
+      --     stdin = false,
+      --     args = { "-m", "pylint", "-f", "json" },
+      --   }
+      -- }
       local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
       vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
         group = lint_augroup,
@@ -348,5 +348,12 @@ return {
     --  Call config for python files and load the cached venv automatically
     ft = "python",
     keys = { { "<leader>cv", "<cmd>:VenvSelect<cr>", desc = "Select VirtualEnv", ft = "python" } },
+  },
+  {
+    "supermaven-inc/supermaven-nvim",
+    lazy = false,
+    config = function()
+      require("supermaven-nvim").setup {}
+    end,
   },
 }
