@@ -120,6 +120,8 @@ return {
       "vue",
       "templ",
       "tmpl",
+      "eex",
+      "heex",
     },
     config = function()
       require("nvim-ts-autotag").setup()
