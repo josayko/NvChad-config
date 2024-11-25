@@ -146,3 +146,19 @@ lspconfig.rust_analyzer.setup {
   filetypes = { "rust" },
   root_dir = lspconfig.util.root_pattern "Cargo.toml",
 }
+
+lspconfig.pyright.setup {
+  single_file_support = true,
+  settings = {
+    python = {
+      analysis = {
+        autoSearchPaths = true,
+        useLibraryCodeForTypes = true,
+        diagnosticMode = "openFilesOnly",
+        extraPaths = {
+          vim.fn.getcwd() .. "/src",
+        },
+      },
+    },
+  },
+}

@@ -25,7 +25,7 @@ return {
         "tailwindcss-language-server",
         "typescript-language-server",
         "pyright",
-        "black",
+        "ruff",
         "isort",
         "yaml-language-server",
         "emmet-ls",
@@ -85,15 +85,15 @@ return {
         -- typescriptreact = { "deno" },
         -- vue = { "deno" },
         go = { "golangcilint" },
-        python = { "pylint" },
+        python = { "ruff" },
       }
       -- lint.linters = {
-      --   pylint = {
-      --     -- Set pylint to work in virtualenv
+      --   ruff = {
+      --     -- Set ruff to work in virtualenv
       --     cmd = "python",
       --     stdin = false,
-      --     args = { "-m", "pylint", "-f", "json" },
-      --   }
+      --     args = { "-m", "ruff", "check" },
+      --   },
       -- }
       local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
       vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
