@@ -22,6 +22,7 @@ local servers = {
   "pyright",
   "gleam",
   "yamlls",
+  "zls",
 }
 
 -- -- lsps with default config
