@@ -14,6 +14,7 @@ local options = {
     yaml = { "yamlfmt" },
     go = { "goimports-reviser", "gofmt" },
     vue = { "prettierd" },
+    zig = { "zigfmt" },
   },
   format_on_save = {
     -- These options will be passed to conform.format()

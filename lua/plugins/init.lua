@@ -38,6 +38,7 @@ return {
         "goimports-reviser",
         "denols",
         "pylint",
+        "zls",
       },
     },
   },
@@ -66,6 +67,7 @@ return {
         "gleam",
         "angular",
         "yaml",
+        "zig",
       }
       return opts
     end,
