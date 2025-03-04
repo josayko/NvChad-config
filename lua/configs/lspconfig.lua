@@ -15,7 +15,6 @@ local servers = {
   "texlab",
   "denols",
   "angularls",
-  "fsautocomplete",
   "templ",
   "tailwindcss",
   "rust_analyzer",
