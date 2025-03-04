@@ -31,7 +31,6 @@ return {
         "emmet-ls",
         "elixir-ls",
         "angular-language-server",
-        "fsautocomplete",
         "fantomas",
         "texlab",
         "gopls",
