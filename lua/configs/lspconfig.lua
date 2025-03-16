@@ -85,7 +85,7 @@ lspconfig.ts_ls.setup {
     plugins = {
       {
         name = "@vue/typescript-plugin",
-        location = "/Users/josayko/.asdf/installs/nodejs/22.11.0/lib/node_modules/@vue/language-server/",
+        location = "/Users/josayko/.local/share/mise/installs/node/22.14.0/lib/node_modules/@vue/language-server",
         languages = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue" },
       },
     },
