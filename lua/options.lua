@@ -16,6 +16,8 @@ o.tabstop = 2
 o.softtabstop = 2
 o.shiftwidth = 2
 o.expandtab = true
+o.lazyredraw = true -- Reduces screen redraws
+-- o.cursorline = false
 
 local autocmd = vim.api.nvim_create_autocmd
 
