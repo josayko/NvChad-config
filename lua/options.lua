@@ -37,9 +37,9 @@ vim.api.nvim_create_autocmd("VimEnter", {
   end,
 })
 
--- Format on save wioth conform.nvim
+-- Format on save with conform.nvim
 vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*",
+  -- pattern = "*",
   callback = function(args)
     require("conform").format { bufnr = args.buf }
   end,
