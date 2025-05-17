@@ -54,7 +54,7 @@ lspconfig.lua_ls.setup {
 }
 
 lspconfig.eslint.setup {
-  root_dir = util.root_pattern "eslint.config.js",
+  root_dir = util.root_pattern "eslint.config.*",
 }
 
 lspconfig.ts_ls.setup {
