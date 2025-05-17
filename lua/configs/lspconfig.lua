@@ -6,7 +6,6 @@ local lspconfig = require "lspconfig"
 local util = require "lspconfig/util"
 
 local servers = {
-  "lua_ls",
   "ts_ls",
   "emmet_ls",
   "eslint",
