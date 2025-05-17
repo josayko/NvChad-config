@@ -6,18 +6,10 @@ local lspconfig = require "lspconfig"
 local util = require "lspconfig/util"
 
 local servers = {
-  "ts_ls",
-  "emmet_ls",
-  "eslint",
-  "volar",
   "gopls",
   "texlab",
-  "denols",
-  "angularls",
   "templ",
   "tailwindcss",
-  "rust_analyzer",
-  "pyright",
   "gleam",
   "yamlls",
   "zls",
