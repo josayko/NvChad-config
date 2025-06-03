@@ -13,6 +13,7 @@ local servers = {
   "gleam",
   "yamlls",
   "zls",
+  "hls",
 }
 
 vim.lsp.enable(servers)
@@ -82,7 +83,7 @@ lspconfig.ts_ls.setup {
 -- e.g. require'lspconfig'.volar.setup{}
 -- See volar's section for more information
 local function get_typescript_server_path(root_dir)
-  local global_ts = "/Users/josayko/.asdf/installs/nodejs/22.11.0/lib/node_modules/typescript/lib"
+  local global_ts = "/Users/josayko/.local/share/mise/installs/node/22.14.0/lib/node_modules/typescript/lib"
   -- Alternative location if installed as root:
   -- local global_ts = "/usr/local/lib/node_modules/typescript/lib"
   local found_ts = ""

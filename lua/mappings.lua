@@ -41,3 +41,8 @@ end, { desc = "Diff this ~" })
 map("n", "<leader>td", gitsigns.toggle_deleted, { desc = "Toggle deleted" })
 -- Text object
 map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", { desc = "Select hunk" })
+
+-- Open diagnostics on cursor hold
+map("n", "<leader>dd", function()
+  vim.diagnostic.open_float(0, { scope = "line" })
+end, { desc = "Toggle diagnostics float" })

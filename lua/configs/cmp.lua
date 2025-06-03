@@ -2,6 +2,14 @@ dofile(vim.g.base46_cache .. "cmp")
 
 local cmp = require "cmp"
 
+local has_words_before = function()
+  if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then
+    return false
+  end
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_text(0, line - 1, 0, line - 1, col, {})[1]:match "^%s*$" == nil
+end
+
 local options = {
   completion = { completeopt = "menu,menuone" },
 
@@ -26,13 +34,15 @@ local options = {
 
     ["<Tab>"] = cmp.mapping(function(fallback)
       local luasnip = require "luasnip"
-      local suggestion = require "supermaven-nvim.completion_preview"
-      if cmp.visible() then
-        cmp.confirm { select = true }
+      -- local suggestion = require "supermaven-nvim.completion_preview"
+      if cmp.visible() and has_words_before() then
+        cmp.select_next_item { behavior = cmp.SelectBehavior.Select }
       elseif luasnip.expand_or_jumpable() then
         luasnip.expand_or_jump()
-      elseif suggestion.has_suggestion() then
-        suggestion.on_accept_suggestion()
+      elseif cmp.visible() then
+        cmp.confirm { select = true }
+      -- elseif suggestion.has_suggestion() then
+      --   suggestion.on_accept_suggestion()
       else
         fallback()
       end
@@ -50,11 +60,12 @@ local options = {
   },
 
   sources = {
-    { name = "nvim_lsp" },
-    { name = "luasnip" },
-    { name = "buffer" },
-    { name = "nvim_lua" },
-    { name = "path" },
+    { name = "copilot", group_index = 2 },
+    { name = "nvim_lsp", group_index = 2 },
+    { name = "path", group_index = 2 },
+    { name = "luasnip", group_index = 2 },
+    { name = "nvim_lua", group_index = 2 },
+    { name = "buffer", group_index = 2 },
   },
 }
 
